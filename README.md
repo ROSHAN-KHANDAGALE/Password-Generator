@@ -14,7 +14,7 @@ The Random Password Generator is a Python script designed to generate secure and
 ## Advantages
 
 - **Enhanced Security:** The generated passwords are designed to be highly secure, reducing the risk of unauthorized access to accounts and sensitive information.
-- **Customizable Length:** Users can tailor the length of the generated password to meet the requirements of different services and platforms.
+- **Customizable Length:** Users can input the length of the generated password to meet the requirements of different services and platforms.
 - **No Storage Required:** The generator operates on-the-fly and does not store or save the generated passwords, reducing the potential for exposure.
 - **Offline Capability:** As a self-contained Python script, the generator does not require an internet connection, ensuring reliable password generation even in offline environments.
 
