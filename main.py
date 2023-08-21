@@ -1,24 +1,47 @@
 import random
 import string
-import welcome as wc
+import tkinter as tk
 
 def password_generate(length):
     characters = string.ascii_letters + string.digits + string.punctuation
     password = ''.join(random.choice(characters) for _ in range(length))
     return password
 
-def main():
+def generate_password():
     try:
-        passlength = int(input("PLEASE! Provide the Length of Password: "))
+        passlength = int(input1.get())
         if passlength <= 0:
-            print('INVALID GENERATION')
+            input2.delete(0, tk.END)
+            input2.insert(0, 'INVALID GENERATION')
             return
         generated = password_generate(passlength)
-        print("Generated Password:", generated)
-        print('\n\n')
+        input2.delete(0, tk.END)
+        input2.insert(0, generated)
     except ValueError:
-        print("Invalid input. Please enter a valid positive integer.")
+        input2.delete(0, tk.END)
+        input2.insert(0, 'Invalid input!!')
 
-if __name__ == "__main__":
-    wc.welcome()
-    main()
+frame = tk.Tk()
+frame.geometry('450x250')
+frame.title('PASSWORD GENERATOR')
+frame.configure(bg='grey')
+
+fontProp = ('Cascadia Mono SemiBold', 12)
+
+text0 = tk.Label(frame, font=fontProp, bg='red', text='PASSWORD GENERATOR!!')
+text0.pack(pady=10)
+
+txt1 = tk.Label(frame, font=fontProp, bg='white', text='ENTER LENGTH OF PASSWORD : ')
+txt1.configure(bg='orange')
+txt1.pack(pady=5)
+
+input1 = tk.Entry(frame, font=fontProp, justify='center')
+input1.pack()
+
+btn_generate = tk.Button(frame, font=fontProp, text='GENERATE PASSWORD', command=generate_password, bg='teal')
+btn_generate.pack(pady=10)
+
+input2 = tk.Entry(frame, font=fontProp, width=20, justify='center')
+input2.pack()
+
+frame.mainloop()
