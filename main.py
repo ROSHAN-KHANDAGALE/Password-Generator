@@ -21,8 +21,12 @@ def generate_password():
         input2.delete(0, tk.END)
         input2.insert(0, 'Invalid input!!')
 
+def Reset():
+    input1.delete(0, tk.END)
+    input2.delete(0, tk.END)
+
 frame = tk.Tk()
-frame.geometry('450x250')
+frame.geometry('450x280')
 frame.title('PASSWORD GENERATOR')
 frame.configure(bg='grey')
 
@@ -43,5 +47,8 @@ btn_generate.pack(pady=10)
 
 input2 = tk.Entry(frame, font=fontProp, width=20, justify='center')
 input2.pack()
+
+resetbtn = tk.Button(frame, font=fontProp, text='RESET', command=Reset, bg='white')
+resetbtn.pack(pady=10)
 
 frame.mainloop()
